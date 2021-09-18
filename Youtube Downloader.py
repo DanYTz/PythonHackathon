@@ -22,15 +22,15 @@ stream = video.streams.filter(res=res).first()
 print()
 print('Title: '+ video.title)
 print('Resolution: ' + res)
-print("File Size: " + str(round(stream.filesize / 1000000)) + 'MB')
+print("File Size: " + str(round(stream.filesize / 1000000, 2)) + 'MB')
 
 confirm2 = input('Continue?(y/n): ')
 while confirm2 != 'y':
     exit = input('Do you want to exit?(y/n): ')
     if exit == 'y':
-        exit()
+        quit()
     else:
-        confirm = input('Is the url correct? (y/n):')
+        confirm2 = input('Continue?(y/n): ')
 print()
 print('Downloading......')
 
