@@ -18,7 +18,7 @@ print('Choose the video resolution:')  #
 print('Please wait loading.............')
 for i in video.streams.filter(audio_codec = 'mp4a.40.2'):  
     print(str(i.resolution))  # to show the list of available resolution
-res = input("e.g.(1080p): ")  # ask the user to enter the resolution based on the given resolution in the previous line
+res = input("e.g.(360p) (note: resolution 720p and higher doesn't support audio. Please choose lower resolution): ")  # ask the user to enter the resolution based on the given resolution in the previous line
 stream = video.streams.filter(
     res=res, audio_codec = 'mp4a.40.2').first()  # change the video  resolution based on what the user type in the previous line
 
@@ -26,8 +26,7 @@ stream = video.streams.filter(
 print()
 print('Title: ' + video.title)  # video title
 print('Resolution: ' + res)  # video resolution
-print("File Size: " + str(
-    round(stream.filesize / 1000000, 2)) + 'MB')  # file size (need to round it into 2 decimal number)
+
 
 # to confirm before proceed
 confirm2 = input('Continue?(y/n): ')  # ask the user to continue
