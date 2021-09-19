@@ -16,11 +16,11 @@ while confirm != 'y':
 # to choose the video resolution
 print('Choose the video resolution:')  #
 print('Please wait loading.............')
-for i in video.streams:  
+for i in video.streams.filter(audio_codec = 'mp4a.40.2'):  
     print(str(i.resolution))  # to show the list of available resolution
 res = input("e.g.(1080p): ")  # ask the user to enter the resolution based on the given resolution in the previous line
 stream = video.streams.filter(
-    res=res).first()  # change the video  resolution based on what the user type in the previous line
+    res=res, audio_codec = 'mp4a.40.2').first()  # change the video  resolution based on what the user type in the previous line
 
 # to show all the setting and information about the video
 print()
